@@ -17,9 +17,3 @@ button1.onclick = function() {
     count3 += 1;
   button3.innerHTML = "They is button 3: <br>" + count3;
 };
-
-button1.onclick = function addRow(tableID){
-  var table = document.querySelector("")
-
-  .executesql
-}

@@ -1,26 +1,14 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "db_ledc";
+  require_once('admin/phpscripts/config.php');
 
-// Create connection
-$link = mysqli_connect($servername, $username, $password, $dbname);
-// Check connection
-if (!$link) {
-    die("Connection failed: " . mysqli_connect_error());
-}
+  if(isset($_POST['btnpressed'])) {
+    $btn = $_POST['btnpress'];
+      $result = addclick($btn);
+  }
+    // echo '<br/>' . "* The item has been added to your cart.";
+    // echo $btn;
+  // echo $btn;
 
-$sql = "INSERT INTO tbl_clicker (click_button)
-VALUES ('button1')";
-
-if (mysqli_query($link, $sql)) {
-    echo "New record created successfully";
-} else {
-    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-}
-
-mysqli_close($link);
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,9 +24,16 @@ mysqli_close($link);
 
     <h3>Click Counter</h3>
     <form class="" action="click.php" method="post">
-      <input type="submit" name="button1" id="button1">I am button 1:<br> 0</input>
-      <input type="submit" name="button2" id="button2">You are button 2:<br> 0</input>
-      <input type="submit" name="button3" id="button3">They is button 3:<br> 0</input>
+      <input type="hidden" name="btnpress" value="btn1">
+      <button type="submit" name="btnpressed" value="btn1" id="button1">I am button 1:<br> 0</button>
+    </form>
+    <form class="" action="click.php" method="post">
+      <input type="hidden" name="btnpress" value="btn2">
+      <button type="submit" name="btnpressed" value="btn2" id="button2">You are button 2:<br> 0</button>
+    </form>
+    <form class="" action="click.php" method="post">
+      <input type="hidden" name="btnpress" value="btn3">
+      <button type="submit" name="btnpressed" value="btn3" id="button3">They is button 3:<br> 0</button>
     </form>
 
   </div>
