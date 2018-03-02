@@ -4,7 +4,13 @@
   if(isset($_POST['btnpressed'])) {
     $btn = $_POST['btnpress'];
       $result = addclick($btn);
+      $message = $result;
+      // echo $message;
   }
+
+  //
+
+  // $clicks = showclicks($btn);
     // echo '<br/>' . "* The item has been added to your cart.";
     // echo $btn;
   // echo $btn;
@@ -27,6 +33,7 @@
       <input type="hidden" name="btnpress" value="btn1">
       <button type="submit" name="btnpressed" value="btn1" id="button1">I am button 1:<br> 0</button>
     </form>
+    <p>Number of times clicked on  <?php echo $btn . " : " . $message ?></p>
     <form class="" action="click.php" method="post">
       <input type="hidden" name="btnpress" value="btn2">
       <button type="submit" name="btnpressed" value="btn2" id="button2">You are button 2:<br> 0</button>
@@ -37,6 +44,7 @@
     </form>
 
   </div>
+
   <script src="js/click.js"></script>
 </body>
 </html>
